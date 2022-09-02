@@ -1,1 +1,3 @@
-Se agrego nuevo archivo en la rama de prueba
+Se agrego nuevo archivo desde la master.
+
+Ahora se creó un cambio para agregarlo a la nueva rama.
