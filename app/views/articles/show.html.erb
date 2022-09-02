@@ -1,0 +1,41 @@
+<div class="container">
+<center>
+	<table class="table table-dark table-striped" style="width: 50%; margin-top: 80px">
+		<thead>
+			<tr >
+				<th scope="col">Title</th> <!--style="border: 1px solid black; padding: 30px; font-size: 30px"-->
+				<th scope="col">Description</th>
+				<th scope="col">Update</th>
+				<th scope="col">Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr style="border: 1px solid black">
+				<td scope="row">
+					<%= @article.title %>
+				</td>
+				<td >
+					<%= @article.body %>
+				</td>
+				<td >
+					<%= link_to "Edit", edit_article_path(@article) %>
+				</td>
+				<td >
+					<%= link_to "Destroy", article_path(@article), data: {
+						turbo_method: :delete,
+						turbo_confirm: "Are you sure?"
+					} %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</center>
+</div>
+
+<h2>Comments</h2>
+<!-- EL objeto @article esta disponible en cualquier parcial representado en la vista
+porque lo definimos con una variable instancia -->
+<%= render @article.comments %>
+<!-- EL segundo render solo define la plantilla parcial que tenemos que renderizar -->
+<h2>Add a comments:</h2>
+<%= render 'comments/form' %>
